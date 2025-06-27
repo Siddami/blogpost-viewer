@@ -10,4 +10,5 @@ export interface Article {
     name: string | null;
   };
   author: string | null;
+  keywords: string[] | null; 
 }
