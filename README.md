@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# THEJSDUDE – Developer Blog
 
-## Getting Started
+A modern, visually appealing blog built with **Next.js** and **Tailwind CSS**, designed for developers and tech enthusiasts. It features a curated feed of blog posts, detailed article pages, comment functionality, and a modular component structure for scalability and readability.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Core Pages
+- **Homepage** with:
+  - LATEST posts section
+  - Filtered JAVASCRIPT posts section
+  - Modular `BlogCard` components with horizontal and grid layouts
+  - Responsive newsletter subscription form
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Article Page** with:
+  - Article content (title, image, metadata, tags)
+  - Comment form component
+  - Related posts displayed in a clean horizontal/vertical layout
+  - Static content for now, supports dynamic in the future
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Design & UI
+- layout inspired by Figma design
+- Custom typography with Oswald and Font Awesome icons
+- Accessible color contrast and clean UI
 
-## Learn More
+### Components
+- `BlogCard` – displays article data in card format
+- `CommentForm` – allows user input and submission
+- `NewsletterForm` – handles email capture with validation
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js 13+ App Router**
+- **Tailwind CSS** for utility-first styling
+- **TypeScript** for type safety
+- **Responsive design** with mobile-first layout
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Challenges Faced
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Hydration mismatch issues**: Handled with `isMounted` and later removed for static pages.
+- **Routing confusion**: Using `window.location.href` didn’t refresh the same route – now prepared for dynamic routing using slugs.
+- **Design implementation**: Matching pixel-perfect Figma styles using utility classes.
+- **Layout responsiveness**: Ensured grid and flex utilities adjusted cleanly across screen sizes.
+- **Loader edge cases**: Loader was persisting due to routing and hydration misalignment, resolved by simplifying render conditions.
+
+---
+
+## Future Improvements
+
+- **Dynamic routing** using `[slug].tsx` to load individual articles from content or CMS
+- **Markdown rendering** or MDX support for richer content writing
+- **CMS integration** (e.g., Sanity, Contentful, or Notion API)
+- **Comment system with backend** (Firebase, Supabase, or custom API)
+- **Theme switcher** for dark/light toggle
+- **Search and filter functionality**
+- **Pagination or infinite scroll**
+- **SEO improvements** with dynamic meta tags
