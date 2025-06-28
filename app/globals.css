@@ -13,5 +13,7 @@
 body {
     margin: 0;
     color: #e5e7eb;
-    background: var(--background-gradient);
+    /* background: var(--background-gradient);
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
