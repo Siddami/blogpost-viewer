@@ -5,10 +5,7 @@ export interface Article {
   url: string;
   urlToImage: string | null;
   publishedAt: string | null;
-  source: {
-    id: string | null;
-    name: string | null;
-  };
+  readTime: string | null;
   author: string | null;
   keywords: string[] | null; 
 }
