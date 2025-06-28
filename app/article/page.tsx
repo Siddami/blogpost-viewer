@@ -190,17 +190,6 @@ export default function Post() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-[#383FEF] py-4 text-center">
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
-          <div className="text-sm font-oswald font-medium mb-2 sm:mb-0">
-            AXENTIOI ALEXANDRU - JAVASCRIPT DEVELOPER
-          </div>
-          <div className="text-sm font-oswald font-medium">
-            2022 - ALL RIGHTS RESERVED
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
