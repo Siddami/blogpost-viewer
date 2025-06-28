@@ -9,46 +9,73 @@ export default function CommentForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, email, comment }); // Replace with actual submission logic
+    console.log({ name, email, comment });
     setName("");
     setEmail("");
     setComment("");
   };
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Leave a comment</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
-          className="w-full p-2 bg-gray-700 text-white rounded"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          className="w-full p-2 bg-gray-700 text-white rounded"
-          required
-        />
-        <textarea
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder="Your comment"
-          className="w-full p-2 bg-gray-700 text-white rounded h-24"
-          required
-        />
-        <button
-          type="submit"
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+    <section className="mt-8">
+      <h2 className="text-2xl font-oswald font-medium mb-4">Leave a comment</h2>
+      <div className="bg-[#050C20] p-4 rounded-lg">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="w-full sm:w-1/2">
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Name"
+                className="w-full p-2 bg-transparent border-b border-[#383FEF] text-white text-base font-oswald font-light"
+                required
+                aria-label="Name"
+              />
+            </div>
+            <div className="hidden sm:block w-[1px] h-12 bg-[#383FEF]" />
+            <div className="w-full sm:w-1/2">
+              <label htmlFor="email" className="sr-only">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="w-full p-2 bg-transparent border-b border-[#383FEF] text-white text-base font-oswald font-light"
+                required
+                aria-label="Email"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="comment" className="sr-only">
+              Comment
+            </label>
+            <textarea
+              id="comment"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Comment..."
+              className="w-full p-2 bg-transparent border-b border-[#383FEF] text-white text-base font-oswald font-light h-24"
+              required
+              aria-label="Comment"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-[#383FEF] text-white px-4 py-2 rounded w-full sm:w-auto text-center font-oswald font-medium"
+            aria-label="Submit comment"
+          >
+            SUBMIT
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
