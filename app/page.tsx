@@ -6,8 +6,6 @@ import { latestPosts, javascriptArticles } from "./data";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  // Theme state
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   // Newsletter form state
@@ -15,24 +13,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  // Load theme from localStorage on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
 
-  // Apply theme to document and save to localStorage
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDarkMode]);
 
   // Simulate loading
   useEffect(() => {
@@ -50,13 +31,9 @@ export default function Home() {
     setEmail("");
   };
 
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-  };
-
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="flex items-center justify-center h-screen dark:bg-gray-900">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-600" />
       </div>
     );
@@ -64,16 +41,7 @@ export default function Home() {
 
   return (
     <div className="mx-auto min-h-screen bg-gray-100 dark:bg-gradient-to-br dark:from-[#020213] dark:to-[#091C38] text-gray-900 dark:text-white font-oswald">
-      {/* Theme Toggle */}
-      <div className="p-4 text-right">
-        <button
-          onClick={toggleTheme}
-          className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-sm font-medium focus:outline-none"
-          aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
-        >
-          {isDarkMode ? "Light Mode" : "Dark Mode"}
-        </button>
-      </div>
+ 
 
       {/* Latest Posts Section */}
       <section className="mb-12 py-10">
