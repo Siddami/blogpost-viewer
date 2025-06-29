@@ -4,13 +4,31 @@ import CommentForm from "../components/CommentForm";
 import BlogCard from "../components/BlogCard";
 import { javascriptArticles, dummyArticle } from "../data";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Post() {
+    const [isLoading, setIsLoading] = useState(false);
+
+    // Newsletter form state
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const router = useRouter();
+
+
+      // Simulate loading
+      useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 1000); 
+        return () => clearTimeout(timer);
+      }, []);
+    
+      if (isLoading) {
+        return (
+          <div className="flex items-center justify-center h-screen dark:bg-gray-900">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-600" />
+          </div>
+        );
+      }    
     
     const handleNewsletterSubmit = (e: React.FormEvent) => {
       e.preventDefault();

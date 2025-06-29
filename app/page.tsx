@@ -41,7 +41,6 @@ export default function Home() {
 
   return (
     <div className="mx-auto min-h-screen bg-gray-100 dark:bg-gradient-to-br dark:from-[#020213] dark:to-[#091C38] text-gray-900 dark:text-white font-oswald">
- 
 
       {/* Latest Posts Section */}
       <section className="mb-12 py-10">
