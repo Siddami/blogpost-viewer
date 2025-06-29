@@ -12,12 +12,14 @@ A modern, visually appealing blog built with **Next.js** and **Tailwind CSS**, d
   - Filtered JAVASCRIPT posts section
   - Modular `BlogCard` components with horizontal and grid layouts
   - Responsive newsletter subscription form
+  - Loader
 
 - **Article Page** with:
   - Article content (title, image, metadata, tags)
   - Comment form component
   - Related posts displayed in a clean horizontal/vertical layout
   - Static content for now, supports dynamic in the future
+  - Loader
 
 ### Design & UI
 - layout inspired by Figma design
